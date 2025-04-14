@@ -1,7 +1,7 @@
 # V-Server Setup Guide
 
 ## Project Description
-This guide outlines the setup and configuration of a V-Server. It covers secure SSH key-based access, Nginx installation and configuration, and Git integration for code deployment.
+This guide covers setting up secure SSH key-based access, installing and configuring Nginx, and integrating Git for code deployment.
 
 ## Table of Contents
 1. [Detailed Project Description](#detailed-project-description)
@@ -47,9 +47,8 @@ This repository offers a step-by-step tutorial to set up a basic Ubuntu-based V-
 Before starting, make sure you have the following:
 - A virtual server running Linux
 - SSH access to the server
-- Basic command-line experience
-- GitHub account for Git integration
-- A local terminal or SSH client
+- sudo rights on your vm
+- GitHub account and SSH client
 
 # Quickstart
 
@@ -83,28 +82,20 @@ Before starting, make sure you have the following:
    sudo systemctl restart ssh.service
    ```
 
-6. **Update package sources:**
-   ```sh
-   sudo apt update
-   ```
-
-7. **Install Nginx:**
+6. **Install Nginx:**
    ```sh
    sudo apt install nginx -y
    ```
 
-8. **Verify Nginx is running:**
+7. **Verify Nginx is running:**
    ```sh
    systemctl status nginx
    ```
 
-9. **Visit your server IP in the browser:**
+8. **Visit your server IP in the browser:**
    ```
    http://<your_vm_ip>
    ```
-
-10. **Create and serve a custom web page via Nginx:**
-    - See the [Usage](#usage) section for detailed steps.
 
 # Usage
 
@@ -127,7 +118,7 @@ To transfer the public SSH key to the V-Server, run:
 ssh-copy-id -i ~/.ssh/id_ed25519.pub <your_username>@<your_vm_ip>
 ```
 
-### Connecting using Public Key Without typing Password
+### Connecting using SSH
 Run SSH command wirh Public Key you created before:
 ```sh
 ssh -i ~/.ssh/id_ed25519 <your_username>@<your_vm_ip>
